@@ -1,0 +1,101 @@
+body, html {
+  height: 100%;
+  background-image:url(pizza.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+
+#wrap{
+	background-color: #ffffff95;
+	width: 550px;
+	font-family: Colibri;
+	font-weight: bold;
+	line-height:35px;
+	margin: 0 auto;
+}
+
+
+#wrap legend{
+	font-size: 20px;
+	font-weight: bold;
+	padding: 15px;
+	font-style:italic;
+}
+
+#wrap label{
+	padding-bottom:50px;
+	font-family: Colibri;
+	font-weight: bold;
+}
+
+#wrap input:hover,
+#wrap input:active {
+background-color: #ff000095;
+}
+
+#wrap input[type="email"]:hover,
+#wrap input[type="email"]:active {
+background-color: #ff000095;
+}
+
+#message{
+  position: relative;
+  top: 10px;
+  color:green;
+}
+#err{
+  position: relative;
+  top: 10px;
+  color:red;
+  }
+  
+#errmsg
+{
+color: red;
+}
+
+#wrap div#totalPrice
+{
+    padding:10px;
+    font-weight:bold;
+    background-color:#f4433695;
+}               
+
+.button {
+  background-color: #f44336; 
+  padding: 3px 9px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  transition-duration: 0.4s;
+  border: 1px solid #f44336;
+  display: inline-block;
+  margin: 10px 10px;
+  border-radius: 4px;
+}
+
+ .button2 {
+  background-color: #f44336;; 
+  padding: 12px 18px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  transition-duration: 0.4s;
+  border: 2px solid #f44336;
+  display: inline-block;
+  margin: 10px 10px;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: white ; 
+  color: #f44336;
+  
+}
+
+.button2:hover {
+  background-color: white ; 
+  color: #f44336;
+  
+}

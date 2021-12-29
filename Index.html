@@ -1,0 +1,112 @@
+<!DOCTYPE html> <!-- HTML5 doctype -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en"><!-- HTML5 opening HTML tag with language. The HTML tag can also be used on it's own now. -->
+
+<head>
+	
+	<title>Jamie`s Pizza Place</title>
+		
+	<meta charset="UTF-8"> <!-- HTML5 charset -->
+	<script type="text/javascript" src="jscalculation.js"></script>
+	<link href="External.css" rel="stylesheet" type="text/css"/>
+	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+	
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+<script>
+$(document).ready(function () {
+  //called when key is pressed in textbox
+	$("#quantity").keypress(function (e) {
+     //if the letter is not digit then display error and don't type anything
+		if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        //display error message
+		$("#errmsg").html("Digits Only").show().fadeOut("slow");
+			return false;
+	}
+	});
+});	
+
+function validate(coupon) {
+    var myRe = "extracheese";
+    var coupon = myRe.trim();
+    var input = document.getElementById('coupon').value;
+    if(input.toUpperCase() == coupon.toUpperCase()) {
+        document.getElementById("message").innerHTML="Coupon Accepted - 10% off";
+        document.getElementById("err").innerHTML="";
+        return true;
+    } else {
+        document.getElementById("err").innerHTML="Invalid Coupon";
+        document.getElementById("message").innerHTML="";
+        return false;
+    }
+}
+
+</script>
+
+</head>
+	
+<body onload="hideTotal()">
+
+
+	<div id="wrap">
+		<form action="#" id="pizzaform" onsubmit="return false;">
+			
+			<table>
+				
+				<div class="persinfo">
+					
+					<legend>Create your own pizza!!</legend>
+					
+					<tr>
+					<td><label for="email">Email:</label></td>
+					<td><input type="email" id="email" name="email" required /></td>
+					</tr>
+					<tr>
+					<td><label for="password">Password:</label></td>
+					<td><input type="password" id="pass" name="pass" maxlength="7" required/></td>
+				</div>
+				
+				<div class="pizzatyp">
+										
+					<tr>
+					<td><label >Size:</label></td>
+					<td><select name="pizzas" id="pizzas" onchange="calculateTotal()">
+						<option value="" disabled selected>Select your pizza size</option>
+						<option value = "large"> Large &euro; 5.00 </option>
+						<option value = "extra"> Extra-Large &euro; 7.00</option>
+						<option value = "super"> Supersize &euro; 17.00 </option>
+					</select></td>
+					</tr>
+					<tr>
+					<td><label for="quantity">Quantity:</label></td>
+					<td><input type="text" id="quantity" name="quantity" maxlength="3" onchange="calculateTotal()"/>
+					&nbsp;<span id="errmsg"></span></td>
+					</tr>
+					<tr>					
+					<td><label for="in">Voucher:</label></td>
+					<td><input type="text" name="coupon" id="coupon" /> 
+						<span id="usernameError"></span>
+						<input type="button" value="Validate" class="button" onClick="validate(coupon)"  /></form>
+						<span id="message"></span>
+						<span id="err"></span></td>
+					</tr>
+									
+				</div>	
+								
+			</table>	
+				
+			<div id="totalPrice"></div>	
+				
+			<div>
+			<input type="submit" id="submit" value="Submit" class="button2" onclick="calculateTotal()"/>
+			</div>
+		
+		</form>
+							
+	</div>
+</body>
+
+</html>
